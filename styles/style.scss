@@ -33,17 +33,22 @@ header {
     box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.4);
 
     .header__logo {
-        height: 3.5rem;
+        height: clamp(3.5rem,6vw, 6rem);
         width: auto;
     }
 
     nav ul {
         @include variables.flex-column-center;
-        gap: 0.6rem;
+        gap: clamp(0.6rem, 2vw, 5rem);
     }
 
     nav ul li a {
         @include variables.menu-links;
+        transition: all 0.2s linear;
+    }
+
+    nav ul li a:hover {
+        color: variables.$caramel;
     }
 }
 
@@ -51,7 +56,8 @@ header {
 
 .introduction__hero {
     background: url('../images/haute-couture-2.jpg') center/cover;
-    min-height: 21.8rem;
+    height: clamp(21.8rem, 40vw, 41rem);
+    width: 100%;
     @include variables.flex-column-center;
 
     h1 {
@@ -62,6 +68,10 @@ header {
 }
 
 // INTRODUCTION
+
+.introduction {
+    @include variables.flex-column-center;
+}
 
 .introduction__quote {
 
@@ -90,12 +100,15 @@ header {
 // PRODUCTS
 
 .products {
-
     @include variables.flex-column-center;
     padding: 5.4rem 1.8rem;
 
     background: {
         color: variables.$caramel;
+    }
+
+    .products__container {
+        @include variables.flex-column-center;
     }
 
     h2 {
@@ -141,17 +154,10 @@ header {
 // STORY
 
 .story {
-
     padding: 7rem 0;
     @include variables.flex-column-center;
     margin: 0 1.8rem;
     border-bottom: 0.1rem solid variables.$black;
-
-    h2 {
-        @include variables.secondary-title;
-        margin-bottom: 3.2rem;
-        font-size: 2.6rem;
-    }
 
     figure {
         height: 12rem;
@@ -164,13 +170,25 @@ header {
         }
     }
 
-    svg {
-        height: 2.6rem;
-    }
+    .story__text {
 
-    .main-button {
-        margin-top: 1.6rem;
-        align-self: self-start;
+        @include variables.flex-column-center;
+
+        h2 {
+            @include variables.secondary-title;
+            margin-bottom: 3.2rem;
+            font-size: 2.6rem;
+        }
+
+        svg {
+            height: 2.6rem;
+        }
+
+        .main-button {
+            margin-top: 1.6rem;
+            align-self: self-start;
+        }
+
     }
 }
 
@@ -188,6 +206,7 @@ header {
 
     h2 {
         @include variables.secondary-title;
+        margin-bottom: 3rem;
     }
 
     form {
@@ -262,7 +281,7 @@ header {
 
     iframe {
         display: block;
-        height: 24.5rem;
+        height: clamp(24.5rem, 62vw, 36.5rem);
         width: 100%;
     }
 }
@@ -279,6 +298,7 @@ footer {
 
     p, a, h4 {
         color: variables.$white;
+        font-size: 1.1rem;
     }
 
     svg path {
@@ -286,6 +306,8 @@ footer {
     }
 
     .footer {
+        max-width: 114rem;
+        justify-content: center;
         padding: 5.5rem 0;
         display: grid;
         grid-template: repeat(5, auto) / 1fr;
@@ -299,7 +321,6 @@ footer {
         }
         font: {
             family: 'Poppins', sans-serif;
-            size: 1.1rem;
             weight: 500;
         }
     }
@@ -309,7 +330,6 @@ footer {
         h4 {
             font: {
                 family: 'Poppins', sans-serif;
-                size: 1.1rem;
                 weight: 500;
             }
         }
@@ -334,5 +354,168 @@ footer {
 
     .footer__contact__phone, h4 {
         margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+
+    // TABLET HEADER
+
+    header, header nav ul {
+        @include variables.flex-row-center;
+    }
+
+    header {
+        padding: 1.4rem 4.5rem;
+        justify-content: space-between;
+    }
+
+    .introduction__hero {
+
+        h1 {
+            padding: 4.5rem 13rem;
+        }
+
+    }
+
+    .introduction__text {
+        margin: 0 6.5rem 5.2rem;
+        max-width: 78rem;
+    }
+
+    //  TABLET PRODUCTS
+
+    .products {
+        padding: 5.4rem 9.3rem;
+
+        .products__card {
+            
+            figure {
+                height: 20rem;
+                width: 22rem;
+            }
+        }
+    }
+
+    // TABLET STORY 
+
+    .story {
+
+        figure {
+            height: 29rem;
+        }
+
+        .story__text {
+
+            align-items: flex-start;
+            
+            h2 {
+                text-align: left;
+            }
+        }
+    }
+
+    // TABLET CONTACT
+
+    .contact {
+
+        padding: 10rem 3.5rem 9rem;
+
+        .contact__text {
+
+            h2 {
+                text-align: left;
+            }
+        }
+
+        form {
+            width: 100%;
+
+            input {
+                height: 3rem;
+            }
+
+            .form__names {
+                width: 100%;
+                
+                .form__names__nom, .form__names__prenom {
+                    width: 100%;
+
+                    label {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    // TABLET FOOTER 
+
+    footer {
+
+        p, a, h4 {
+            font-size: clamp(1.1rem, 1vw, 1.5rem);
+        }
+
+        .footer__logo {
+            height: 5rem;
+        }
+
+        .footer {
+            padding: 5.5rem 4rem;
+            grid-template: 1fr / repeat(5, auto);
+            justify-items: center;
+            gap: clamp(1.8rem, 2vw, 10.5rem);
+            }
+
+        .footer__legal {
+            height: 3.5rem;
+                @include variables.flex-row-center;
+                gap: 2.5rem;
+        }
+
+    }
+}
+
+@media (min-width: 1024px) {
+
+    // DESKTOP PRODUCTS
+
+    .products {
+
+        .products__container {
+            @include variables.flex-row-center;
+            gap: 6rem;
+        }
+    }
+    
+    // DESKTOP STORY
+    
+    .story {
+        margin: 0 12rem;
+        @include variables.flex-row-center;
+        gap: 3rem;
+
+        figure {
+            height: 38rem;
+        }
+
+        .story__text {
+            svg {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    // DESKTOP CONTACT
+
+    .contact {
+        @include variables.flex-row-center;
+        padding: 12rem;
+
+        .contact__text {
+            max-width: 50%;
+            align-self: flex-start;
+        }
     }
 }

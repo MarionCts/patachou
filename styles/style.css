@@ -1,7 +1,7 @@
 p, a, label {
-  font-size: 1.1rem;
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -41,7 +41,7 @@ header {
   box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.4);
 }
 header .header__logo {
-  height: 3.5rem;
+  height: clamp(3.5rem, 6vw, 6rem);
   width: auto;
 }
 header nav ul {
@@ -49,19 +49,23 @@ header nav ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.6rem;
+  gap: clamp(0.6rem, 2vw, 5rem);
 }
 header nav ul li a {
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 2vw, 1.4rem);
   text-transform: uppercase;
-  letter-spacing: 8;
   color: #000000;
+  transition: all 0.2s linear;
+}
+header nav ul li a:hover {
+  color: #AB864C;
 }
 
 .introduction__hero {
   background: url("../images/haute-couture-2.jpg") center/cover;
-  min-height: 21.8rem;
+  height: clamp(21.8rem, 40vw, 41rem);
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,6 +80,13 @@ header nav ul li a {
   line-height: 1.2;
   background: rgba(255, 255, 255, 0.8);
   padding: 2.5rem 3rem;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .introduction__quote {
@@ -106,6 +117,12 @@ header nav ul li a {
   align-items: center;
   padding: 5.4rem 1.8rem;
   background-color: #AB864C;
+}
+.products .products__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .products h2 {
   text-align: center;
@@ -165,16 +182,6 @@ header nav ul li a {
   margin: 0 1.8rem;
   border-bottom: 0.1rem solid #000000;
 }
-.story h2 {
-  text-align: center;
-  font-family: "Kaisei Decol", serif;
-  font-size: clamp(1.7rem, 5vw, 3.8rem);
-  font-weight: 800;
-  color: #000000;
-  line-height: 1.2;
-  margin-bottom: 3.2rem;
-  font-size: 2.6rem;
-}
 .story figure {
   height: 12rem;
   width: auto;
@@ -184,10 +191,26 @@ header nav ul li a {
   height: 100%;
   width: auto;
 }
-.story svg {
+.story .story__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.story .story__text h2 {
+  text-align: center;
+  font-family: "Kaisei Decol", serif;
+  font-size: clamp(1.7rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: #000000;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+  font-size: 2.6rem;
+}
+.story .story__text svg {
   height: 2.6rem;
 }
-.story .main-button {
+.story .story__text .main-button {
   margin-top: 1.6rem;
   align-self: self-start;
 }
@@ -217,6 +240,7 @@ header nav ul li a {
   font-weight: 800;
   color: #000000;
   line-height: 1.2;
+  margin-bottom: 3rem;
 }
 .contact form {
   display: flex;
@@ -229,6 +253,7 @@ header nav ul li a {
 }
 .contact form .form__names {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
@@ -278,7 +303,7 @@ header nav ul li a {
 .location .location__text h2 {
   text-align: center;
   font-family: "Kaisei Decol", serif;
-  font-size: clamp(2.4rem, 7vw, 5.4rem);
+  font-size: clamp(2.4rem, 7vw, 4rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
@@ -291,7 +316,7 @@ header nav ul li a {
 }
 .location iframe {
   display: block;
-  height: 24.5rem;
+  height: clamp(24.5rem, 62vw, 36.5rem);
   width: 100%;
 }
 
@@ -303,11 +328,14 @@ footer .footer__logo {
 }
 footer p, footer a, footer h4 {
   color: #ffffff;
+  font-size: 1.1rem;
 }
 footer svg path {
   fill: #ffffff;
 }
 footer .footer {
+  max-width: 114rem;
+  justify-content: center;
   padding: 5.5rem 0;
   display: grid;
   grid-template: repeat(5, auto)/1fr;
@@ -317,16 +345,15 @@ footer .footer {
 footer .footer__timetable h4 {
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  font-size: 1.1rem;
   font-weight: 500;
 }
 footer .footer__social h4 {
   font-family: "Poppins", sans-serif;
-  font-size: 1.1rem;
   font-weight: 500;
 }
 footer .footer__social .footer__social__icons {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   justify-content: flex-start;
@@ -346,4 +373,115 @@ footer .footer__legal {
 }
 footer .footer__contact__phone, footer h4 {
   margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  header, header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  header {
+    padding: 1.4rem 4.5rem;
+    justify-content: space-between;
+  }
+  .introduction__hero h1 {
+    padding: 4.5rem 13rem;
+  }
+  .introduction__text {
+    margin: 0 6.5rem 5.2rem;
+    max-width: 78rem;
+  }
+  .products {
+    padding: 5.4rem 9.3rem;
+  }
+  .products .products__card figure {
+    height: 20rem;
+    width: 22rem;
+  }
+  .story figure {
+    height: 29rem;
+  }
+  .story .story__text {
+    align-items: flex-start;
+  }
+  .story .story__text h2 {
+    text-align: left;
+  }
+  .contact {
+    padding: 10rem 3.5rem 9rem;
+  }
+  .contact .contact__text h2 {
+    text-align: left;
+  }
+  .contact form {
+    width: 100%;
+  }
+  .contact form input {
+    height: 3rem;
+  }
+  .contact form .form__names {
+    width: 100%;
+  }
+  .contact form .form__names .form__names__nom, .contact form .form__names .form__names__prenom {
+    width: 100%;
+  }
+  .contact form .form__names .form__names__nom label, .contact form .form__names .form__names__prenom label {
+    font-size: 1.2rem;
+  }
+  footer p, footer a, footer h4 {
+    font-size: clamp(1.1rem, 1vw, 1.5rem);
+  }
+  footer .footer__logo {
+    height: 5rem;
+  }
+  footer .footer {
+    padding: 5.5rem 4rem;
+    grid-template: 1fr/repeat(5, auto);
+    justify-items: center;
+    gap: clamp(1.8rem, 2vw, 10.5rem);
+  }
+  footer .footer__legal {
+    height: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .products .products__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+  }
+  .story {
+    margin: 0 12rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  .story figure {
+    height: 38rem;
+  }
+  .story .story__text svg {
+    margin-bottom: 1rem;
+  }
+  .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12rem;
+  }
+  .contact .contact__text {
+    max-width: 50%;
+    align-self: flex-start;
+  }
 }/*# sourceMappingURL=style.css.map */

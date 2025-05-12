@@ -10,6 +10,7 @@ $black: #000000;
 
 @mixin flex-row-center {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -25,9 +26,9 @@ $black: #000000;
 
 p, a, label {
     font: {
-        size: 1.1rem;
+        size: clamp(1.1rem, 2vw, 1.7rem);
         family: 'Poppins', sans-serif;
-        weight: 500;
+        weight: 400;
     }
     line-height: 1.2;
 }
@@ -39,10 +40,9 @@ a:active {
 @mixin menu-links {
     font: {
         weight: 600;
-        size: 0.8rem;
+        size: clamp(0.8rem, 2vw, 1.4rem);
     }
     text-transform: uppercase;
-    letter-spacing: 8;
     color: $black;
 }
 
@@ -78,7 +78,7 @@ a:active {
     }
     font: {
         family: 'Kaisei Decol', serif;
-       size: clamp(2.4rem, 7vw, 5.4rem);
+       size: clamp(2.4rem, 7vw, 4rem);
        weight: 800;
        }
     color: $white;
