@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+header {
+  background-color: #AB864C;
+}
+
+.story h2 {
+  font-color: #000000;
+  font-size: 3.8rem;
+  font-weight: 800;
+}
+
+.main-button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-align: center;
+  background-color: #AB864C;
+  color: #ffffff;
+  padding: 1.5rem;
+}/*# sourceMappingURL=style.css.map */

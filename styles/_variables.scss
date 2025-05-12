@@ -1,0 +1,56 @@
+// DESIGN SYSTEM : VARIABLES
+
+// Colors
+
+$caramel: #AB864C;
+$white: #ffffff;
+$black: #000000;
+
+// Text Styles
+
+@mixin primary-title {
+    font: {
+       color: $black;
+       size: 4.5rem;
+       weight: 800;
+       }
+    line-height: 50;
+}
+
+@mixin secondary-title {
+ font: {
+    color: $black;
+    size: 3.8rem;
+    weight: 800;
+    }
+}
+
+@mixin third-title {
+    font: {
+       color: $white;
+       size: 5.4rem;
+       weight: 800;
+       }
+}
+
+@mixin small-title {
+    font: {
+       color: $white;
+       size: 2.5rem;
+       weight: 800;
+       }
+} 
+
+@mixin main-button {
+    font: {
+        family: 'Poppins', sans-serif;
+        size: 1.5rem;
+    }
+    text: {
+        decoration: none;
+        align: center;
+    }
+    background-color: $caramel;
+    color: $white;
+    padding: 1.5rem;
+}

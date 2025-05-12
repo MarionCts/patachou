@@ -1,0 +1,31 @@
+@use './variables';
+
+// RESET CSS
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+// HEADER
+
+header {
+    background-color: variables.$caramel;
+}
+
+// STORY
+
+.story {
+    h2 {
+        @include variables.secondary-title;
+    }
+}
+
+.main-button {
+    @include variables.main-button;
+}
