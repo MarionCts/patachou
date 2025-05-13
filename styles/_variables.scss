@@ -26,11 +26,18 @@ $black: #000000;
 
 p, a, label {
     font: {
-        size: clamp(1.1rem, 2vw, 1.7rem);
+        size: clamp(1.5rem, 2vw, 1.7rem);
         family: 'Poppins', sans-serif;
         weight: 400;
     }
     line-height: 1.2;
+}
+
+a {
+    transition: all 0.2s linear;
+    &:hover {
+        color: $caramel;
+    }
 }
 
 a:active {
@@ -40,7 +47,7 @@ a:active {
 @mixin menu-links {
     font: {
         weight: 600;
-        size: clamp(0.8rem, 2vw, 1.4rem);
+        size: clamp(1.2rem, 2vw, 1.4rem);
     }
     text-transform: uppercase;
     color: $black;
@@ -91,7 +98,7 @@ a:active {
     }
     font: {
         family: 'Kaisei Decol', serif;
-       size: clamp(1.3rem, 3vw, 2.5rem);
+       size: clamp(1.8rem, 3vw, 2.5rem);
        weight: 800;
        }
      color: $white;
@@ -100,6 +107,8 @@ a:active {
 // Buttons styles
 
 @mixin main-button {
+
+    transition: all 0.2s linear;
     font: {
         family: 'Poppins', sans-serif;
         size: clamp(1rem, 3vw, 1.5rem);
@@ -111,9 +120,16 @@ a:active {
     background-color: $caramel;
     color: $white;
     padding: clamp(1rem, 3vw, 1.5rem);
+    &:hover {
+        background-color: $black;
+        color: $white;
+    }
 }
 
 @mixin secondary-button {
+
+    transition: all 0.2s linear;
+    background-color: none;
     font: {
         family: 'Poppins', sans-serif;
         size: clamp(1rem, 3vw, 1.5rem);
@@ -125,4 +141,8 @@ a:active {
     color: $white;
     border: 0.1rem solid $white;
     padding: clamp(1rem, 3vw, 1.4rem) clamp(0.4rem, 3vw, 2.2rem);
+    &:hover {
+        background-color: $white;
+        color: $caramel;
+    }
 }

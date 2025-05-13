@@ -1,36 +1,31 @@
 @use './variables';
+@use './reset';
 
-// RESET CSS
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 10px;
-}
-
-ul li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-.block {
-    display: block;
-}
 
 // HEADER
 
-header {
+header, header nav ul {
+
     @include variables.flex-column-center;
+
+    @media (min-width: 768px) {
+
+        @include variables.flex-row-center;
+    }
+}
+
+header {
+    position: relative;
     padding: 1.4rem;
     gap: 0.8rem;
     box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.4);
+    z-index: 2;
+
+    @media (min-width: 768px) {
+
+        padding: 1.4rem 4.5rem;
+        justify-content: space-between;
+    }
 
     .header__logo {
         height: clamp(3.5rem,6vw, 6rem);
@@ -38,7 +33,6 @@ header {
     }
 
     nav ul {
-        @include variables.flex-column-center;
         gap: clamp(0.6rem, 2vw, 5rem);
     }
 
@@ -64,6 +58,11 @@ header {
         @include variables.primary-title;
         background: rgba(255, 255, 255, 0.8);
         padding: 2.5rem 3rem;
+
+        @media (min-width: 768px) {
+            
+            padding: 4.5rem 13rem;
+        }
     }
 }
 
@@ -80,7 +79,7 @@ header {
     p {
         font-family:'Kaisei Decol', serif;
         font-weight: 800;
-        font-size: 1.75rem;
+        font-size: 2rem;
         text-align: center;
     }
 
@@ -95,6 +94,12 @@ header {
     text-align: center;
     border: 0.1rem solid variables.$black;
     margin-bottom: 5.2rem;
+
+    @media (min-width: 768px) {
+
+        margin: 0 6.5rem 5.2rem;
+        max-width: 75rem;
+    }
 }
 
 // PRODUCTS
@@ -103,12 +108,23 @@ header {
     @include variables.flex-column-center;
     padding: 5.4rem 1.8rem;
 
+    @media (min-width: 768px) {
+        
+        padding: 5.4rem 9.3rem;
+    }
+
     background: {
         color: variables.$caramel;
     }
 
     .products__container {
         @include variables.flex-column-center;
+
+        @media (min-width: 1024px) {
+
+            @include variables.flex-row-center;
+            gap: 6rem;
+        }
     }
 
     h2 {
@@ -143,6 +159,12 @@ header {
             height: 18rem;
             width: 20rem;
 
+            @media (min-width: 768px) {
+
+                height: 20rem;
+                width: 22rem;
+            }
+
             img {
                 height: 100%;
                 width: 100%;
@@ -159,10 +181,27 @@ header {
     margin: 0 1.8rem;
     border-bottom: 0.1rem solid variables.$black;
 
+    @media (min-width: 1024px) {
+
+        margin: 0 12rem;
+        @include variables.flex-row-center;
+        gap: 3rem;
+    }
+
     figure {
         height: 12rem;
         width: auto;
         margin-bottom: 2.2rem;
+
+        @media (min-width: 768px) {
+
+            height: 29rem;
+        }
+
+        @media (min-width: 1024px) {
+
+            height: 38rem;
+        }
 
         img {
             height: 100%;
@@ -174,14 +213,29 @@ header {
 
         @include variables.flex-column-center;
 
+        @media (min-width: 768px) {
+
+            align-items: flex-start;
+        }
+
         h2 {
             @include variables.secondary-title;
             margin-bottom: 3.2rem;
             font-size: 2.6rem;
+
+            @media (min-width: 768px) {
+
+                text-align: left;
+            }
         }
 
         svg {
             height: 2.6rem;
+
+            @media (min-width: 1024px) {
+
+                margin-bottom: 1rem;
+            }
         }
 
         .main-button {
@@ -204,14 +258,53 @@ header {
     @include variables.flex-column-center;
     gap: 3rem;
 
+    @media (min-width: 768px) {
+
+        padding: 10rem 3.5rem 9rem;
+    }
+
+    @media (min-width: 1024px) {
+
+        @include variables.flex-row-center;
+        padding: 12rem;
+    }
+
+    .contact__text {
+        
+        @media (min-width: 1024px) {
+        
+            max-width: 50%;
+            align-self: flex-start;
+        }
+    }
+
     h2 {
         @include variables.secondary-title;
         margin-bottom: 3rem;
+
+        @media (min-width: 768px) {
+
+            text-align: left;
+        }
     }
 
     form {
 
         @include variables.flex-column-center;
+
+        @media (min-width: 768px) {
+
+            width: 100%;
+        }
+        
+        input {
+            min-height: 2.5rem;
+
+            @media (min-width: 768px) {
+
+                height: 3rem;
+            }
+        }
 
         p {
             align-self: self-start;
@@ -221,6 +314,27 @@ header {
             @include variables.flex-row-center;
             gap: 0.5rem;
 
+            @media (min-width: 768px) {
+
+                width: 100%;
+            }
+
+            label {
+                        font-size: 0.9rem;
+
+                        @media (min-width: 768px) {
+
+                            font-size: 1.2rem;
+                        }
+                    }
+            .form__names__nom, .form__names__prenom {
+
+                @media (min-width:768px) {
+
+                    width: 100%;
+                }
+            }
+            
             .form__names__prenom input, .form__names__nom input {
                 width: 100%;
             }
@@ -253,6 +367,13 @@ header {
             width: 100%;
             border: none;
             cursor: pointer;
+        }
+
+        .form__conditions {
+            width: 100%;
+            @include variables.flex-row-center;
+            justify-content: flex-start;
+            gap: 0.5rem;
         }
     }
 }
@@ -294,11 +415,21 @@ footer {
 
     .footer__logo {
         height: 4rem;
+
+        @media (min-width: 768px) {
+
+            height: 5rem;
+        }
     }
 
     p, a, h4 {
         color: variables.$white;
         font-size: 1.1rem;
+
+        @media (min-width: 768px) {
+
+            font-size: clamp(1.1rem, 1vw, 1.5rem);
+        }
     }
 
     svg path {
@@ -313,6 +444,14 @@ footer {
         grid-template: repeat(5, auto) / 1fr;
         justify-items: center;
         gap: 1.8rem;
+
+        @media (min-width: 768px) {
+
+            padding: 5.5rem 4rem;
+            grid-template: 1fr / repeat(5, auto);
+            justify-items: center;
+            gap: clamp(1.8rem, 2vw, 10.5rem);
+        }
     }
 
     .footer__timetable h4 {
@@ -350,172 +489,16 @@ footer {
         height: 5.5rem;
         @include variables.flex-column-center;
         justify-content: space-evenly;
+
+        @media (min-width: 768px) {
+
+            height: 3.5rem;
+            @include variables.flex-row-center;
+            gap: 2.5rem;
+        }
     }
 
     .footer__contact__phone, h4 {
         margin-bottom: 1.5rem;
-    }
-}
-
-@media (min-width: 768px) {
-
-    // TABLET HEADER
-
-    header, header nav ul {
-        @include variables.flex-row-center;
-    }
-
-    header {
-        padding: 1.4rem 4.5rem;
-        justify-content: space-between;
-    }
-
-    .introduction__hero {
-
-        h1 {
-            padding: 4.5rem 13rem;
-        }
-
-    }
-
-    .introduction__text {
-        margin: 0 6.5rem 5.2rem;
-        max-width: 78rem;
-    }
-
-    //  TABLET PRODUCTS
-
-    .products {
-        padding: 5.4rem 9.3rem;
-
-        .products__card {
-            
-            figure {
-                height: 20rem;
-                width: 22rem;
-            }
-        }
-    }
-
-    // TABLET STORY 
-
-    .story {
-
-        figure {
-            height: 29rem;
-        }
-
-        .story__text {
-
-            align-items: flex-start;
-            
-            h2 {
-                text-align: left;
-            }
-        }
-    }
-
-    // TABLET CONTACT
-
-    .contact {
-
-        padding: 10rem 3.5rem 9rem;
-
-        .contact__text {
-
-            h2 {
-                text-align: left;
-            }
-        }
-
-        form {
-            width: 100%;
-
-            input {
-                height: 3rem;
-            }
-
-            .form__names {
-                width: 100%;
-                
-                .form__names__nom, .form__names__prenom {
-                    width: 100%;
-
-                    label {
-                        font-size: 1.2rem;
-                    }
-                }
-            }
-        }
-    }
-
-    // TABLET FOOTER 
-
-    footer {
-
-        p, a, h4 {
-            font-size: clamp(1.1rem, 1vw, 1.5rem);
-        }
-
-        .footer__logo {
-            height: 5rem;
-        }
-
-        .footer {
-            padding: 5.5rem 4rem;
-            grid-template: 1fr / repeat(5, auto);
-            justify-items: center;
-            gap: clamp(1.8rem, 2vw, 10.5rem);
-            }
-
-        .footer__legal {
-            height: 3.5rem;
-                @include variables.flex-row-center;
-                gap: 2.5rem;
-        }
-
-    }
-}
-
-@media (min-width: 1024px) {
-
-    // DESKTOP PRODUCTS
-
-    .products {
-
-        .products__container {
-            @include variables.flex-row-center;
-            gap: 6rem;
-        }
-    }
-    
-    // DESKTOP STORY
-    
-    .story {
-        margin: 0 12rem;
-        @include variables.flex-row-center;
-        gap: 3rem;
-
-        figure {
-            height: 38rem;
-        }
-
-        .story__text {
-            svg {
-                margin-bottom: 1rem;
-            }
-        }
-    }
-
-    // DESKTOP CONTACT
-
-    .contact {
-        @include variables.flex-row-center;
-        padding: 12rem;
-
-        .contact__text {
-            max-width: 50%;
-            align-self: flex-start;
-        }
     }
 }
