@@ -553,22 +553,22 @@ footer .footer__timetable .footer__social__icons svg path:hover, footer .footer_
 }
 footer .footer__legal {
   border: 0.1rem solid #AB864C;
-  height: 5.5rem;
+  padding: 2.5rem 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
+  gap: 1.5rem;
 }
 @media (min-width: 768px) {
   footer .footer__legal {
-    height: 3.5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    gap: 4.5rem;
   }
 }
 footer .footer__contact__phone, footer h4 {
