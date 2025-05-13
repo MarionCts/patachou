@@ -166,7 +166,7 @@ header nav ul li a:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 6rem;
+    gap: 3rem;
   }
 }
 .products h2 {
@@ -200,6 +200,7 @@ header nav ul li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 40rem;
   gap: 4rem;
 }
 .products .products__card h3 {
@@ -221,8 +222,8 @@ header nav ul li a:hover {
 }
 @media (min-width: 768px) {
   .products .products__card figure {
-    height: 20rem;
-    width: 22rem;
+    height: 33rem;
+    width: 36rem;
   }
 }
 .products .products__card figure img {

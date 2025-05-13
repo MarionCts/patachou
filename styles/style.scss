@@ -124,7 +124,7 @@ header {
         @media (min-width: 1024px) {
 
             @include variables.flex-row-center;
-            gap: 6rem;
+            gap: 3rem;
         }
     }
 
@@ -142,6 +142,7 @@ header {
     .products__card {
 
         @include variables.flex-column-center;
+        max-width: 40rem;
         gap: 4rem;
 
 
@@ -162,8 +163,8 @@ header {
 
             @media (min-width: 768px) {
 
-                height: 20rem;
-                width: 22rem;
+                height: 33rem;
+                width: 36rem;
             }
 
             img {
