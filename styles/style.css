@@ -489,10 +489,15 @@ header nav ul li a:hover {
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #000000;
 }
 footer .footer__logo {
   height: 8rem;
+  margin: 0 auto;
 }
 @media (min-width: 768px) {
   footer .footer__logo {
@@ -508,11 +513,9 @@ footer svg path {
 }
 footer .footer {
   max-width: 114rem;
-  justify-content: center;
   padding: 5.5rem 0;
   display: grid;
   grid-template: repeat(5, auto)/1fr;
-  justify-items: center;
   gap: 2.5rem;
 }
 @media (min-width: 768px) {
@@ -551,6 +554,7 @@ footer .footer__timetable .footer__social__icons svg path:hover, footer .footer_
 footer .footer__legal {
   border: 0.1rem solid #AB864C;
   height: 5.5rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -412,11 +412,12 @@ header {
 // FOOTER
 
 footer {
-
+    @include variables.flex-column-center;
     background-color: variables.$black;
 
     .footer__logo {
         height: 8rem;
+        margin: 0 auto;
 
         @media (min-width: 768px) {
 
@@ -435,11 +436,9 @@ footer {
 
     .footer {
         max-width: 114rem;
-        justify-content: center;
         padding: 5.5rem 0;
         display: grid;
         grid-template: repeat(5, auto) / 1fr;
-        justify-items: center;
         gap: 2.5rem;
 
         @media (min-width: 768px) {
@@ -492,6 +491,7 @@ footer {
     .footer__legal {
         border: 0.1rem solid variables.$caramel;
         height: 5.5rem;
+        width: 100%;
         @include variables.flex-column-center;
         justify-content: space-evenly;
 
