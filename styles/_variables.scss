@@ -26,7 +26,7 @@ $black: #000000;
 
 p, a, label {
     font: {
-        size: clamp(1.5rem, 2vw, 1.7rem);
+        size: 1.6rem;
         family: 'Poppins', sans-serif;
         weight: 400;
     }
@@ -46,7 +46,7 @@ a:active {
 
 @mixin menu-links {
     font: {
-        weight: 600;
+        weight: 500;
         size: clamp(1.2rem, 2vw, 1.4rem);
     }
     text-transform: uppercase;

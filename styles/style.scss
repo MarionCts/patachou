@@ -17,7 +17,7 @@ header, header nav ul {
 header {
     position: relative;
     padding: 1.4rem;
-    gap: 0.8rem;
+    gap: 1.5rem;
     box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.4);
     z-index: 2;
 
@@ -28,7 +28,7 @@ header {
     }
 
     .header__logo {
-        height: clamp(3.5rem,6vw, 6rem);
+        height: 6rem;
         width: auto;
     }
 
@@ -70,35 +70,35 @@ header {
 
 .introduction {
     @include variables.flex-column-center;
-}
 
-.introduction__quote {
+    .introduction__quote {
 
-    padding: 5.6rem 0;
+        padding: 5.6rem 0;
 
-    p {
-        font-family:'Kaisei Decol', serif;
-        font-weight: 800;
-        font-size: 2rem;
+        p {
+            font-family:'Kaisei Decol', serif;
+            font-weight: 800;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .introduction__quote__author {
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+    }
+
+    .introduction__text {
+        padding: 1.2rem;
         text-align: center;
-    }
+        border: 0.1rem solid variables.$black;
+        margin-bottom: 5.2rem;
 
-    .introduction__quote__author {
-        margin-top: 1rem;
-        font-size: 1rem;
-    }
-}
+        @media (min-width: 768px) {
 
-.introduction__text {
-    padding: 1.2rem;
-    text-align: center;
-    border: 0.1rem solid variables.$black;
-    margin-bottom: 5.2rem;
-
-    @media (min-width: 768px) {
-
-        margin: 0 6.5rem 5.2rem;
-        max-width: 75rem;
+            margin: 0 6.5rem 5.2rem;
+            max-width: 75rem;
+        }
     }
 }
 
@@ -110,10 +110,11 @@ header {
 
     @media (min-width: 768px) {
         
-        padding: 5.4rem 9.3rem;
+        padding: 6.5rem 9.3rem;
     }
 
     background: {
+
         color: variables.$caramel;
     }
 
@@ -141,7 +142,7 @@ header {
     .products__card {
 
         @include variables.flex-column-center;
-        gap: 3.8rem;
+        gap: 4rem;
 
 
         h3 {
@@ -152,7 +153,7 @@ header {
             color: variables.$white;
             text-align: center;
             font-weight: 300;
-            margin-bottom: 2.2rem;
+            margin-bottom: 3.5rem;
         }
 
         figure {
@@ -221,11 +222,12 @@ header {
         h2 {
             @include variables.secondary-title;
             margin-bottom: 3.2rem;
-            font-size: 2.6rem;
+            font-size: 3.2rem;
 
             @media (min-width: 768px) {
 
                 text-align: left;
+                font-size: clamp(1.7rem, 5vw, 3.8rem);
             }
         }
 
@@ -312,7 +314,7 @@ header {
 
         .form__names {
             @include variables.flex-row-center;
-            gap: 0.5rem;
+            gap: 0.8rem;
 
             @media (min-width: 768px) {
 
@@ -414,7 +416,7 @@ footer {
     background-color: variables.$black;
 
     .footer__logo {
-        height: 4rem;
+        height: 8rem;
 
         @media (min-width: 768px) {
 
@@ -424,12 +426,7 @@ footer {
 
     p, a, h4 {
         color: variables.$white;
-        font-size: 1.1rem;
-
-        @media (min-width: 768px) {
-
-            font-size: clamp(1.1rem, 1vw, 1.5rem);
-        }
+        font-size: 1.5rem;
     }
 
     svg path {
@@ -443,28 +440,26 @@ footer {
         display: grid;
         grid-template: repeat(5, auto) / 1fr;
         justify-items: center;
-        gap: 1.8rem;
+        gap: 2.5rem;
 
         @media (min-width: 768px) {
 
             padding: 5.5rem 4rem;
             grid-template: 1fr / repeat(5, auto);
             justify-items: center;
-            gap: clamp(1.8rem, 2vw, 10.5rem);
+            gap: clamp(2.5em, 2vw, 10.5rem);
         }
     }
 
-    .footer__timetable h4 {
-        text: {
-            transform: uppercase;
-        }
-        font: {
-            family: 'Poppins', sans-serif;
-            weight: 500;
+    .footer__timetable {
+        h4 {
+            text: {
+                transform: uppercase;
+            }
         }
     }
 
-    .footer__social {
+    .footer__timetable, .footer__social {
 
         h4 {
             font: {
@@ -476,10 +471,20 @@ footer {
         .footer__social__icons {
             @include variables.flex-row-center;
             justify-content: flex-start;
-            gap: 0.5rem;
+            gap: 0.8rem;
 
             svg {
-                height: 2rem;
+                height: 2.5rem;
+
+                path {
+
+                    fill: variables.$white;
+                    transition: all 0.2s linear; 
+
+                    &:hover {
+                        fill: variables.$caramel;
+                    }
+                }
             }
         }
     }
